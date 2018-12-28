@@ -1,0 +1,17 @@
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\bin\Debug\QSNetBoot.exe.config
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\bin\Debug\QSNetBoot.exe
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\bin\Debug\QSNetBoot.pdb
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.csprojAssemblyReference.cache
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\MainWindow.g.cs
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\App.g.cs
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot_MarkupCompile.cache
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot_MarkupCompile.lref
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\MainWindow.baml
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.g.resources
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.Properties.Resources.resources
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.csproj.GenerateResource.cache
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.csproj.CoreCompileInputs.cache
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.exe
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.pdb
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\bin\Debug\ManagedWifi.dll
+C:\Users\zhang\source\repos\QSNetBoot\QSNetBoot\obj\Debug\QSNetBoot.csproj.CopyComplete

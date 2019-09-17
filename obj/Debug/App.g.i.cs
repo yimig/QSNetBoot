@@ -54,7 +54,6 @@ namespace QSNetBoot {
             #line hidden
         }
         
-        
         /// <summary>
         /// Application Entry Point.
         /// </summary>

@@ -1,0 +1,13 @@
+create or replace procedure get_coursedata(
+p_sid in student.sid%type,
+p_cid in course.cid%type)
+as
+p_sname student.sname%type;
+p_grade grade.grade%type;
+p_cname course.cname%type;
+begin
+select p_sname,p_grade,p_cname into g.sname,g.grade,c.cname from (select student.sname,grade.* from student inner join grade on student.sid=grade.sid) g inner join course c on c.cid=g.cid where c.cid=p_cid and g.sid=p_sid;
+dbms_output.put_line('Student "'||p_sname||'",selected course is "'||p_cname||'",grade is:'||p_grade||'.');
+exception when no_data_found then
+dbms_output.put_line('Student or Course is NOT exist in database,check them again and make sure your input correctly.');
+end get_coursedata;

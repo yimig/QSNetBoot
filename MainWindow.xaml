@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QSNetBoot"
         mc:Ignorable="d"
-        Title="少林寺章丘分寺网络启动工具" Height="450" Width="300" ResizeMode="NoResize" Visibility="Hidden" Icon="Icon/NotifyIcon.ico">
+        Title="少林寺章丘分寺网络启动工具" Height="450" Width="300" ResizeMode="NoResize"  Icon="Icon/NotifyIcon.ico">
     <Grid>
         <TabControl>
             <TabItem Header="配置连接">
@@ -24,13 +24,18 @@
                                 <TextBlock>密码：</TextBlock>
                                 <PasswordBox Width="180" Name="PasswordBox"></PasswordBox>
                             </StackPanel>
-                            <Button HorizontalAlignment="Right" Width="80" Margin="0,0,10,10" Name="SaveButton" Click="SaveButton_OnClick">保存</Button>
+                            <Button HorizontalAlignment="Right" Width="80" Margin="0,0,10,10" Name="SaveButton" Click="SaveButton_OnClick">保存并连接</Button>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Margin="10,0,10,10" Header="启动设置">
                         <StackPanel>
-                            <CheckBox Margin="10" Name="isBootBox" Click="IsBootBox_OnClick">开机启动（需要管理员权限）</CheckBox>
+                            <CheckBox Margin="10" Name="isBootBox" Click="IsBootBox_OnClick">开机启动</CheckBox>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox Margin="10,0,10,10" Name="NotOpenBrowserBox" Click="NotOpenBrowserBox_OnClick">连接认证网络禁止其弹出浏览器窗口</CheckBox>
+                                <TextBlock Foreground="Blue" ToolTip="如果不勾选该项每次开机自动连接都会弹出浏览器窗口，但是如果勾选该项在连接非校园网的需认证的网络时也不会弹出浏览器窗口，需要您自己打开浏览器并跳转到登陆页面。">(?)</TextBlock>
+                            </StackPanel>
                         </StackPanel>
+
                     </GroupBox>
                     <GroupBox Margin="10,0,10,10" Header="连接设置">
                         <StackPanel>
@@ -42,10 +47,10 @@
             <TabItem Header="关于">
                 <GroupBox Margin="10,0,10,10" Header="软件信息">
                     <StackPanel>
-                        <TextBlock Margin="10,10,10,0" FontWeight="Bold">Ver 1.0.0.0</TextBlock>
+                        <TextBlock Margin="10,10,10,0" FontWeight="Bold">Ver 0.9-Beta</TextBlock>
                         <TextBlock Margin="10,10,10,0">一键连接校园网，省出时间打拳练棍</TextBlock>
                         <TextBlock Margin="10,0,10,0">佛系制作，随时弃坑</TextBlock>
-                        <Button Width="100" HorizontalAlignment="Right" Margin="10">网站项目页</Button>
+                        <Button Width="100" HorizontalAlignment="Right" Margin="10"  Click="JumpToProjectPageBtn_OnClick" Name="JumpToProjectPageBtn">GitHub项目页</Button>
                         <TextBlock Margin="10,10,10,0" FontWeight="Bold">开源许可：</TextBlock>
                         <TextBlock Margin="10,10,10,0" FontWeight="Bold">Copyright [Upane Web]</TextBlock>
                         <TextBlock TextWrapping="WrapWithOverflow"  FontSize="10" Margin="10">

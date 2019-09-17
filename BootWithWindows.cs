@@ -13,7 +13,7 @@ namespace QSNetBoot
 {
     static class BootWithWindows
     {
-        static string filepath = Application.ExecutablePath;
+        static string filepath = "\""+Application.ExecutablePath+"\" -c";
         static string runName = "QSNetBoot";
 
         public static void Boot(bool isBoot)
@@ -32,7 +32,6 @@ namespace QSNetBoot
         {
             try
             {
-
                 RegistryKey hkml = Registry.CurrentUser;
                 RegistryKey runKey = hkml.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
                 runKey.SetValue(runName, filepath);
@@ -49,10 +48,10 @@ namespace QSNetBoot
         {
             try
             {
-                string runName = "QSNetBoot";
                 RegistryKey hkml = Registry.CurrentUser;
                 RegistryKey runKeys = hkml.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
                 runKeys.DeleteValue(runName);
+                runKeys.Close();
             }
             catch (Exception ex)
             {

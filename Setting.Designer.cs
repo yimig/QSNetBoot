@@ -94,5 +94,17 @@ namespace QSNetBoot {
                 this["isFirstOpen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isNotOpenBrowser {
+            get {
+                return ((bool)(this["isNotOpenBrowser"]));
+            }
+            set {
+                this["isNotOpenBrowser"] = value;
+            }
+        }
     }
 }

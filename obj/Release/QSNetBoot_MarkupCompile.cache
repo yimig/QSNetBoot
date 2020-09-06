@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\zhang\Source\Repos\QSNetBoot\QSNetBoot\obj\x86\Debug\
+C:\Users\zhang\Source\Repos\QSNetBoot\QSNetBoot\obj\Release\
 QSNetBoot
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\zhang\Source\Repos\QSNetBoot\QSNetBoot\App.xaml
 21463638958
 1931861883
 13-1954302136
-20888237290
+20-1521846803
 ConnectWindow.xaml;MainWindow.xaml;
 
 True

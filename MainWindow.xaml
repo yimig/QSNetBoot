@@ -42,17 +42,20 @@
                             <CheckBox Margin="10" Name="isDriectBox" Click="IsDriectBox_OnClick">不等待校园网服务器回送认证结果</CheckBox>
                         </StackPanel>
                     </GroupBox>
-                  </StackPanel>
+                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                        <Button Margin="10" Height="30" Name="btnCreateShotcut" Click="BtnCreateShotcut_OnClick">在桌面创建一键连接快捷方式</Button>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
             <TabItem Header="关于">
                 <GroupBox Margin="10,0,10,10" Header="软件信息">
                     <StackPanel>
-                        <TextBlock Margin="10,10,10,0" FontWeight="Bold">Ver 0.9-Beta</TextBlock>
+                        <TextBlock Margin="10,10,10,0" FontWeight="Bold">Ver 1.0</TextBlock>
                         <TextBlock Margin="10,10,10,0">一键连接校园网，省出时间打拳练棍</TextBlock>
                         <TextBlock Margin="10,0,10,0">佛系制作，随时弃坑</TextBlock>
                         <Button Width="100" HorizontalAlignment="Right" Margin="10"  Click="JumpToProjectPageBtn_OnClick" Name="JumpToProjectPageBtn">GitHub项目页</Button>
                         <TextBlock Margin="10,10,10,0" FontWeight="Bold">开源许可：</TextBlock>
-                        <TextBlock Margin="10,10,10,0" FontWeight="Bold">Copyright [Upane Web]</TextBlock>
+                        <TextBlock Margin="10,10,10,0" FontWeight="Bold">Copyright [upane.cn]</TextBlock>
                         <TextBlock TextWrapping="WrapWithOverflow"  FontSize="10" Margin="10">
                             Licensed under the Apache License, Version 2.0 (the "License");
                             you may not use this file except in compliance with the License.

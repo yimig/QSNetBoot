@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Forms;
 using Application = System.Windows.Application;
 using MessageBox = System.Windows.MessageBox;
+using QSNetBoot.Utils;
 
 
 /* Copyright [Upane Web]
@@ -72,14 +73,27 @@ namespace QSNetBoot
 
         private void NotOpenBrowserBox_OnClick(object sender, RoutedEventArgs e)
         {
-            new NotOpenBrowser((bool) NotOpenBrowserBox.IsChecked);
+            var nob = new NotOpenBrowser((bool) NotOpenBrowserBox.IsChecked);
+            NotOpenBrowserBox.IsChecked = nob.IsChanged;
             Setting.Default.isNotOpenBrowser = (bool) NotOpenBrowserBox.IsChecked;
             Setting.Default.Save();
         }
 
         private void JumpToProjectPageBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://upane.cn/archives/1285");
+            System.Diagnostics.Process.Start("https://github.com/yimig/QSNetBoot");
+        }
+
+        private void BtnCreateShotcut_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Utils.ShortcutCreator.CreateShortcutOnDesktop("一键连接校园网",Environment.CurrentDirectory+ "\\QSNetBoot.exe","-c","使用QSNetBoot一键连接校园网");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误信息：" + ex.Message, "创建快捷方式失败");
+            }
         }
     }
 }

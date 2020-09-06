@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using SimpleWifi;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Path = System.IO.Path;
@@ -25,7 +26,10 @@ namespace QSNetBoot
     /// </summary>
     public partial class ConnectWindow : Window
     {
-        NotifyIcon notifyIcon;
+        private NotifyIcon notifyIcon;
+        private DispatcherTimer timer;
+
+
         public ConnectWindow()
         {
             InitializeComponent();
@@ -36,8 +40,24 @@ namespace QSNetBoot
             }
             catch (Exception e)
             {
-                CloseApp(false,e.Message,e);
+                CloseApp(false, e.Message, e);
             }
+        }
+
+        private void SetEndTimer()
+        {
+            //设置定时器          
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(50000000);   //时间间隔为一秒
+            timer.Tick += new EventHandler(timer_Tick);
+            //开启定时器          
+            timer.Start();
+        }
+
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
 
         private void LinkStart()
@@ -51,7 +71,11 @@ namespace QSNetBoot
             }
             else
             {
-                if (schoolNet.CheckSchoolNet())schoolNet.ConnectToSchoolNet();
+                if (schoolNet.CheckSchoolNet())
+                {
+                    schoolNet.ConnectToSchoolNet();
+                    StartSend();
+                }
                 else CloseApp(false,"当前环境中没有校园网");
             }
         }
@@ -101,7 +125,7 @@ namespace QSNetBoot
         {
             if (isConnected)ShowInfo(isConnected,"已连接",closeString);
             else ShowInfo(isConnected,"连接失败","未知错误"+closeString);
-            Environment.Exit(0);
+            CloseApp();
         }
 
         void CloseApp(bool isConnected, string closeString, Exception e)
@@ -112,7 +136,7 @@ namespace QSNetBoot
                 ShowInfo(isConnected,"连接失败",closeString);
                 logWriter(e.ToString());
             }
-            Environment.Exit(0);
+            CloseApp();
         }
 
         void CloseApp(bool isConnected, string closeString, InfoAnalyser analyser)
@@ -123,7 +147,12 @@ namespace QSNetBoot
                 ShowInfo(isConnected,"连接失败",closeString);
                 logWriter(analyser.RawInfo);
             }
-            Environment.Exit(0);
+            CloseApp();
+        }
+
+        private void CloseApp()
+        {
+            SetEndTimer();
         }
 
         private void logWriter(string log)
@@ -159,6 +188,7 @@ namespace QSNetBoot
 
         private void NotifyIcon_Click(object sender, EventArgs e)
         {
+            timer?.Stop();
             new MainWindow().Show();
             this.Close();
         }

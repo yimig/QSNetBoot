@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -71,23 +71,29 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>NotifyIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\NotifyIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>QSNetBoot.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <ManifestCertificateThumbprint>16B3743E768DEE7ED8D92687531923E4C63F86D6</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2542C018691DFE166824CC672B59360827FF0B8C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>QSNetBoot_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>QSNetBoot_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SimpleWifi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -118,31 +124,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BootWithWindows.cs" />
-    <Compile Include="Carrier.cs" />
-    <Compile Include="ConnectService.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ConnectService.Designer.cs">
-      <DependentUpon>ConnectService.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Utils\BootWithWindows.cs" />
+    <Compile Include="Utils\Carrier.cs" />
     <Compile Include="ConnectWindow.xaml.cs">
       <DependentUpon>ConnectWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NotOpenBrowser.cs" />
+    <Compile Include="Utils\NotOpenBrowser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ResourceFile.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceFile.resx</DependentUpon>
     </Compile>
-    <Compile Include="SchoolNet.cs" />
-    <Compile Include="SendData.cs" />
+    <Compile Include="Utils\SchoolNet.cs" />
+    <Compile Include="Utils\SendData.cs" />
     <Compile Include="Setting.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Setting.settings</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ShortcutCreator.cs" />
     <Page Include="ConnectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,7 +170,7 @@
       <LastGenOutput>ResourceFile.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="QSNetBoot_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Setting.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Setting.Designer.cs</LastGenOutput>
@@ -186,13 +187,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="NotifyIcon.ico" />
+    <Resource Include="Resources\NotifyIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
